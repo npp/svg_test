@@ -56,6 +56,7 @@
             .hover {
               fill-opacity: .7;
             }
+            /*
             #ME {fill: url(#wc1);}
             #NH {fill: url(#wc2);}
             #VT {fill: url(#wc3);}
@@ -64,6 +65,7 @@
             #RI {fill: url(#wc6);}
             #NY {fill: url(#wc7);}
             #PA {fill: url(#wc8);}
+            */
             .text {
               font-size:13.08702374px;
               font-style:normal;
@@ -227,26 +229,33 @@
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
       <script>
-          $('path').on('click', function(){
-              var state = $(this).attr('id');
-              alert(state);
-          }).hover(
-              function() {
-                  $(this).css({'opacity': .5});
-              }, function() {
-                  $(this).css({'opacity': 1});
-              }
-          );
-          $('text').on('click', function(){
-              var state = $(this).data('target');
-              alert(state);
-          }).hover(
-              function() {
-                  $(this).addClass('hover');
-              }, function() {
-                  $(this).removeClass('hover');
-              }
-          );
+        $('g path').each(function(index){
+          var min = 1;
+          var max = 8;
+          var number = Math.floor(Math.random()*(max-min+1)+min);
+          var fill = 'url(#wc' + number + ')';
+          $(this).css({fill: fill});
+        });
+        $('path').on('click', function(){
+          var state = $(this).attr('id');
+          alert(state);
+        }).hover(
+          function() {
+            $(this).css({'opacity': .5});
+          }, function() {
+            $(this).css({'opacity': 1});
+          }
+        );
+        $('text').on('click', function(){
+          var state = $(this).data('target');
+          alert(state);
+        }).hover(
+          function() {
+            $(this).addClass('hover');
+          }, function() {
+            $(this).removeClass('hover');
+          }
+        );
       </script>
     </body>
 </html>
