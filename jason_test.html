@@ -19,7 +19,7 @@
           }
           .wrap {
             text-align: center;
-            background: white url('img/tiled/tilebg.jpg') repeat center center;
+            /*background: white url('img/tiled/tilebg.jpg') repeat center center;*/
           }
           svg {
             margin: 0 auto;
@@ -31,6 +31,12 @@
     </head>
     <body>
       <h1>Our Test Map of the US</h1>
+      <label for="foobar">Change Border Color</label>
+      <select>
+        <option value='#C4B093'>Brown-ish</option>
+        <option value='#000'>Black</option>
+        <option value='#FFF'>White</option>
+      </select>
       <div class="wrap">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1038 735">
           <defs>
@@ -62,7 +68,7 @@
               .land
               {
                 fill-opacity: 1;
-                stroke: #FFF;
+                stroke: #C4B093;
                 stroke-opacity: 2;
                 stroke-width: 2;
                 stroke-dasharray: 8 3 2 4 9 5 7 4 12 3 10 2;
@@ -236,7 +242,6 @@
           <text id="WY-TXT" x="256.86337" y="199.88058" transform="scale(0.997651, 1.00235)" xml:space="preserve" class="text">Wyoming</text>-->
         </svg>
       </div>
-
       <ul>
         <li><a href="index.html">SVG From Wikipedia</a></li>
         <li><a href="tom_test_1.html">drawn/save for web: with 'pencil' line style, outlined (for smaller file size), output via "save for web>SVG" - 263kb</a></li>
@@ -247,6 +252,9 @@
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
       <script>
+        $('select').on('change', function(){
+          $('.land').css({'stroke': $(this).val()});
+        });
         $('g path').each(function(index){
           var min = 1;
           var max = 8;
@@ -259,7 +267,7 @@
           alert(state);
         }).hover(
           function() {
-            $(this).css({'opacity': .5});
+            $(this).css({'opacity': .7});
           }, function() {
             $(this).css({'opacity': 1});
           }
