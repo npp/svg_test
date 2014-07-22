@@ -31,11 +31,18 @@
     </head>
     <body>
       <h1>Our Test Map of the US</h1>
-      <label for="foobar">Change Border Color</label>
-      <select>
+      <label for="change-border-color">Change Border Color</label>
+      <select id="change-border-color">
         <option value='#ececdf' selected>Papter Texture Color (roughly)</option>
         <option value='#5a4924'>Dark Brown</option>
         <option value='#000'>Black</option>
+        <option value='#FFF'>White</option>
+      </select>
+      <label for="change-text-color">Change Border Color</label>
+      <select id="change-text-color">
+        <option value='#ececdf'>Papter Texture Color (roughly)</option>
+        <option value='#5a4924'>Dark Brown</option>
+        <option value='#000' selected>Black</option>
         <option value='#FFF'>White</option>
       </select>
       <div class="wrap">
@@ -240,22 +247,15 @@
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
       <script>
 
-        // TEST BORDER OPTIONS
-        $('select').on('change', function(){
+        // TEST BORDER COLOR
+        $('#change-border-color').on('change', function(){
           $('.land').css({'stroke': $(this).val()});
         });
 
-        // RANDOMLY ASSIGN BG
-        // will eventually not be random
-        // $('g path').each(function(index){
-        //   var min = 1, max = 8;
-        //   var number = Math.floor(Math.random()*(max-min+1)+min);
-        //   var className = 'pattern-' + number;
-        //   this.setAttribute(
-        //     'class',
-        //     this.getAttribute('class') + ' ' + className
-        //   );
-        // });
+        // TEST TEXT COLOR
+        $('#change-text-color').on('change', function(){
+          $('.text').css({'fill': $(this).val()});
+        });
 
         // PATH
         $('path').on('click', function(){
