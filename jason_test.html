@@ -13,9 +13,11 @@
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <style>
           body {
-            font-family: 'Amatic SC';
             margin: 0;
             padding: 0
+          }
+          .text {
+            font-family: 'Amatic SC';
           }
           .wrap {
             text-align: center;
@@ -31,20 +33,24 @@
     </head>
     <body>
       <h1>Our Test Map of the US</h1>
-      <label for="change-border-color">Change Border Color</label>
-      <select id="change-border-color">
-        <option value='#ececdf' selected>Papter Texture Color (roughly)</option>
-        <option value='#5a4924'>Dark Brown</option>
-        <option value='#000'>Black</option>
-        <option value='#FFF'>White</option>
-      </select>
-      <label for="change-text-color">Change Border Color</label>
-      <select id="change-text-color">
-        <option value='#ececdf'>Papter Texture Color (roughly)</option>
-        <option value='#5a4924'>Dark Brown</option>
-        <option value='#000' selected>Black</option>
-        <option value='#FFF'>White</option>
-      </select>
+      <div>
+        <label for="change-border-color">Change Border Color</label>
+        <select id="change-border-color">
+          <option value='#ececdf' selected>Papter Texture Color (roughly)</option>
+          <option value='#5a4924'>Dark Brown</option>
+          <option value='#000'>Black</option>
+          <option value='#FFF'>White</option>
+        </select>
+      </div>
+      <div>
+        <label for="change-text-color">Change Text Color</label>
+        <select id="change-text-color">
+          <option value='#ececdf'>Papter Texture Color (roughly)</option>
+          <option value='#5a4924'>Dark Brown</option>
+          <option value='#000' selected>Black</option>
+          <option value='#FFF'>White</option>
+        </select>
+      </div>
       <div class="wrap">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1038 735">
           <defs>
